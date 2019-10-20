@@ -13,9 +13,3 @@ services:
       - ./jenkindata:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
       - /usr/bin/docker:/usr/bin/docker
-    networks:
-      - infinity_network
-
-networks:
-  infinity_network:
-    external: true

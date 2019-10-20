@@ -1,0 +1,21 @@
+ 
+version: '3.7'
+services:
+  jenkins:
+    image: jenkins/jenkins:lts
+    user: root
+    privileged: true
+    ports:
+      - '9000:8080'
+      - '443:8443'
+      - '50000:50000'
+    volumes:
+      - ./jenkindata:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /usr/bin/docker:/usr/bin/docker
+    networks:
+      - infinity_network
+
+networks:
+  infinity_network:
+    external: true
